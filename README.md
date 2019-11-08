@@ -40,11 +40,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+  - Relational databases are typically unstructured whereas SQL databases are structured in the way they are built
+
 - [ ] Why do tables need a `primary key`?
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+  - primary keys allow for indexing tables and allow for the unique identification of table records
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+- [ ] What is the name given to a table column that references the primary key on another table. - foreign key
+
+- [ ] What do we need in order to have a _many to many_ relationship between two tables. - an intermediary table
 
 ## Minimum Viable Product
 
