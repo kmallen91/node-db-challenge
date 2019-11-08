@@ -19,16 +19,12 @@ function getResources() {
 
 function getTasks(id) {
   return db
-    .select("t.name as Tasks", "p.name as Project", "pp.id as Project Number")
-    .from("project-plan as pp")
+    .select("t.name as Tasks", "p.name as Project")
+    .from("projects as p")
     .join("tasks as t", () => {
-      this.on("tasks.id", "=", "project-plan.task_id");
-    })
-    .join("projects as p", () => {
-      this.on("p.id", "=", "pp.project_id");
-    })
-    .where({
-      "p.id": id
+      this.on("tasks.project_id", "=", "projects.id").where({
+        "p.id": id
+      });
     });
 }
 
@@ -41,5 +37,7 @@ function addResource(resource) {
 }
 
 function addTask(id, task) {
-  return db("task").insert("task");
+  return db("task")
+    .where(id, "=", task.project_id)
+    .insert(task);
 }
